@@ -2,11 +2,11 @@
 
 if [ ! -f /root/.my.cnf ]; then
 
-    /usr/bin/mysqladmin -u root password $password
-
     password=$(pwgen 42)
     dbname="wordpress"
     username="root"
+    
+    /usr/bin/mysqladmin -u root password $password
     cat <<EOF > /root/.my.cnf
 [client]
 user = $username
